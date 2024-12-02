@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيرفر ان ون N1</title>
+    <style>
+        /* إعدادات عامّة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2c2f33; /* خلفية داكنة للسيرفر */
+            color: white;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* الشريط العلوي */
+        .navbar {
+            background-color: #23272a;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #7289da;
+        }
+
+        /* تأثير تحرك الأزرار عند الضغط */
+        .navbar a:active {
+            transform: scale(0.95); /* تكبير صغير عند الضغط */
+        }
+
+        /* الصفحة الرئيسية */
+        .hero {
+            height: 100vh;
+            background: url('https://via.placimages/hero-background.jpg.pngeholder.com/1500x800') center/cover no-repeat; /* يمكنك استبدال الصورة هنا */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .hero .join-btn {
+            background-color: #7289da;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .join-btn:hover {
+            background-color: #5e74b3;
+        }
+
+        /* قسم الأعضاء المتصلين */
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #36393f;
+            border-bottom: 2px solid #7289da;
+        }
+
+        .section-header {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        iframe {
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* قسم بوت الأغاني */
+        .bot-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #23272a;
+            margin-bottom: 30px; /* إضافة هامش أسفل القسم */
+        }
+
+        .bot-section p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        .bot-section .join-btn {
+            background-color: #7289da;
+            padding: 12px 30px;
+            font-size: 18px;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .bot-section .join-btn:hover {
+            background-color: #5e74b3;
+        }
+
+        /* تغيير الشريط العلوي عند التمرير */
+        .navbar.scrolled {
+            background-color: #7289da;
+        }
+
+        /* التأثيرات عند التمرير */
+        .section, .bot-section {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .section.visible, .bot-section.visible {
+            opacity: 1;
+        }
+
+        /* إضافة تأثير التمرير السلس */
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- الشريط العلوي -->
+    <div class="navbar" id="navbar">
+        <div class="brand">N1 ان ون</div>
+        <div>
+            <a href="#home">الرئيسية</a>
+            <a href="#discord-widget">الأعضاء المتصلين</a>
+            <a href="#bot-music">بوت الأغاني</a>
+        </div>
+    </div>
+
+    <!-- الصفحة الرئيسية -->
+    <div class="hero" id="home">
+        <h1>مرحبًا بك في سيرفر ان ون N1</h1>
+        <p>انضم إلى مجتمعنا وابدأ التفاعل مع الأعضاء. لدينا العديد من الأنشطة الممتعة والبوتات الحصرية مثل بوت الأغاني!</p>
+        <a href="https://discord.gg/zQQ3QrmX" class="join-btn" target="_blank">انضم الآن</a>
+    </div>
+
+    <!-- قسم الأعضاء المتصلين -->
+    <div class="section" id="discord-widget">
+        <div class="section-header">الأعضاء المتصلين الآن</div>
+        <iframe src="https://discord.com/widget?id=1284533627178324093&theme=dark" width="400" height="600" allowtransparency="true" frameborder="0"></iframe>
+    </div>
+
+    <!-- قسم بوت الأغاني -->
+    <div class="bot-section" id="bot-music">
+        <div class="section-header">بوت الأغاني الحصري</div>
+        <p>استخدم بوت الأغاني للاستماع إلى الموسيقى المفضلة لديك داخل السيرفر!</p>
+        <a href="https://discord.com/oauth2/authorize?client_id=1284533627178324093&scope=bot&permissions=BOT_PERMISSIONS" class="join-btn" target="_blank">إضافة بوت الأغاني</a>
+    </div>
+
+    <script>
+        // تغيير الشريط العلوي عند التمرير
+        window.onscroll = function() {
+            var navbar = document.getElementById("navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        };
+
+        // إضافة تأثير التمرير
+        window.addEventListener("scroll", function() {
+            var sections = document.querySelectorAll('.section, .bot-section');
+            var windowHeight = window.innerHeight;
+            sections.forEach(function(section) {
+                var sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < windowHeight * 0.8) {
+                    section.classList.add('visible');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
